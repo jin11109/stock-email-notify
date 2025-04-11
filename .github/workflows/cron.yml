@@ -1,0 +1,28 @@
+name: Run Python Script Daily
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 每天 UTC 12:00，台灣時間 20:00
+  workflow_dispatch:        # 允許手動執行
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install ependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Python Script
+        run: python app.py
+  env:
+    SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+    FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
