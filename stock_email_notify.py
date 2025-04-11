@@ -20,14 +20,14 @@ def send_mail():
 
         sg = SendGridAPIClient(api_key)
         response = sg.send(message)
-        return f'Email sent: {response.status_code}', 20
+        return f'Email sent: {response.status_code}', 200
         
     except Exception as e:
         return f'Error: {str(e)}', 500
 
-@app.route("/healthz")
-def health_check():
-    return "Always accept", 200
+# @app.route("/healthz")
+# def health_check():
+#     return "Always accept", 200
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=10000)
