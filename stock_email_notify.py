@@ -25,5 +25,9 @@ def send_mail():
     except Exception as e:
         return f'Error: {str(e)}', 500
 
+@app.route("/healthz")
+def health_check():
+    return "Always accept", 200
+
 if __name__ == '__main__':
     app.run()
