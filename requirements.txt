@@ -1,3 +1,6 @@
 sendgrid
-flask
 python-dotenv
+scipy
+numpy
+pandas
+datetime
