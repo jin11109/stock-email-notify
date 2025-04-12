@@ -92,7 +92,7 @@ def process_data(data_price, data_PER, years_duration):
             <div style="background:{background}; border:{border}; border-radius:6px; padding:2px; width:40px; margin-right: 1px;">
                 <div style="margin-bottom:4px;">
                     <strong style="color:#555; font-size: 12px; text-align:center;">
-                        價：{price:.2f}<br>PER：{per:.2f}
+                        價：{price:.1f}<br>PER：{per:.2f}
                     </strong>
                 </div>
                 <div style="background:#eee; border-radius:4px; width:100%; height:150px; position:relative;">
