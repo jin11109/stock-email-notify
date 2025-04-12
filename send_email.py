@@ -11,15 +11,19 @@ def send_mail(html_content):
     if not api_key or not from_email or not to_emails:
         raise ValueError("Some required environment variables are missing")
 
-    message = Mail(
-        from_email=from_email,
-        to_emails=to_emails,
-        subject='Stock info',
-        html_content=html_content)
+    try:
+        message = Mail(
+            from_email=from_email,
+            to_emails=to_emails,
+            subject='Stock info',
+            html_content=html_content)
 
-    sg = SendGridAPIClient(api_key)
-    response = sg.send(message)
-    print(f'Email sent: {response.status_code}')
+        sg = SendGridAPIClient(api_key)
+        response = sg.send(message)
+        print(f'Email sent: {response.status_code}')
+
+    except Exception as e:
+        return f'Email sent error: {str(e)}'
 
 if __name__ == '__main__':
     load_dotenv()

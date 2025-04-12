@@ -9,7 +9,7 @@ import numpy as np
 def fetch_stock_info(years_duration):
     api_token = os.environ.get('FINMIND_API_TOKEN')
 
-    days_duration = 5 * 365
+    days_duration = years_duration * 365
     stock_id = '2330'
     end_date = datetime.today().strftime('%Y-%m-%d')
     start_date = (datetime.today() - timedelta(days=days_duration)).strftime('%Y-%m-%d')
@@ -110,7 +110,7 @@ def process_data(data_price, data_PER, years_duration):
 
 if __name__ == '__main__':
     load_dotenv()
-    data_price, data_PER = fetch_stock_info(years_duration=3)
-    print(process_data(data_price, data_PER, 3))
+    # data_price, data_PER = fetch_stock_info(years_duration=3)
+    # print(process_data(data_price, data_PER, 3))
     data_price, data_PER = fetch_stock_info(years_duration=5)
     print(process_data(data_price, data_PER, 5))
