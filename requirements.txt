@@ -6,3 +6,4 @@ pandas
 datetime
 requests
 matplotlib
+seaborn
